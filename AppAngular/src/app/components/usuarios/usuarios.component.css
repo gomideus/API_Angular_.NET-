@@ -1,0 +1,28 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  table{
+    width: 170%;
+  }
+
+  .buttons{
+    margin: 5%;
+  }
+
+  #form1{
+    margin: 2%;
+    padding: 2%;
+  }
+
+  .mat-elevation-z8{
+    margin: 2%;
+  }
+
+  .tabelaData{
+    margin: 8%;
+  }
