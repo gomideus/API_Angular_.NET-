@@ -29,8 +29,8 @@ namespace WEBAPI
             var eventService = serviceProvider.GetService<IEventoService>();
             
             Console.WriteLine("Iniciando a aplicação");
-            //eventService.GerarDadosTeste();
-            //eventService.ProcessarFila();
+            eventService.gerarDadosTeste();
+            eventService.processarFila();
         }
 
         public IConfiguration Configuration { get; }

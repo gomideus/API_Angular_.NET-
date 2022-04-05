@@ -18,28 +18,28 @@ export class UsuariosService {
   constructor(private http: HttpClient) { }
 
   // CREATE
-  Incluir(usuario: Usuario ): Observable<any>{
+  incluir(usuario: Usuario ): Observable<any>{
     return this.http.post<Usuario>(this.url, usuario, httpOptions);
   }
 
   // READ ALL
-  Listar(): Observable<Usuario[]>{
+  listar(): Observable<Usuario[]>{
     return this.http.get<Usuario[]>(this.url);
   }
   
   // READ
-  Obter(userID: number): Observable<Usuario>{
+  obter(userID: number): Observable<Usuario>{
     const apiUrl = `${this.url}/${userID}`;
     return this.http.get<Usuario>(apiUrl);
   }
 
   // UPDATE
-  Alterar(usuario: Usuario): Observable<any>{
+  alterar(usuario: Usuario): Observable<any>{
     return this.http.put<Usuario>(this.url, usuario, httpOptions );
   } 
   
   // DELETE
-  Excluir(userID: number): Observable<any> {
+  excluir(userID: number): Observable<any> {
     console.log(userID);
     const apiUrl = `${this.url}/${userID}`;
     return this.http.delete<number>(apiUrl, httpOptions);

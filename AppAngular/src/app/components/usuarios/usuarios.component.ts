@@ -32,24 +32,21 @@ export class UsuariosComponent implements OnInit {
   ];
 
   formulario: any;
-  tituloFormulario: string;
+  tituloFormulario!: string;
 
-  usuarios: Usuario[];
+  usuarios!: Usuario[];
 
   visibilidadeTabela: boolean = true;
   visibilidadeFormulario: boolean = false;
-  //visibilidadeFormularioUpdateUser: boolean = false;
-
 
   states: string[] = ["Administrador", "Normal", "Financeiro"];
 
   displayedColumns: string[] = ['userid', 'name', 'cpf', 'email', 'usertype', 'actions'];
   
-
   constructor( private usuariosService: UsuariosService ) { }
 
   ngOnInit(): void {
-    this.usuariosService.Listar().subscribe(resultado => {
+    this.usuariosService.listar().subscribe(resultado => {
       this.usuarios = resultado;
     });
     
@@ -61,38 +58,11 @@ export class UsuariosComponent implements OnInit {
     this.visibilidadeFormulario = false;
   }
 
-  ExibirFormularioUpdateUser(userID: number): void{
-    this.visibilidadeTabela = false;
-    this.usuariosService.Obter(userID).subscribe(resultado => {
-      this.tituloFormulario = `Atualizar ${resultado.name}`;
-      this.formulario = new FormGroup({
-        userID: new FormControl(userID),
-        name: new FormControl(resultado.name),
-        cpf: new FormControl(resultado.cpf),
-        email: new FormControl(resultado.email),
-        userType: new FormControl(resultado.userType),
-      });
-    });
-
-  }
-
-  ExibirFormularioCadastro(): void{
-    this.visibilidadeTabela = false;
-    this.visibilidadeFormulario = true;
-    this.tituloFormulario = "Novo Usuario";
-    this.formulario = new FormGroup({
-      name: new FormControl(null),
-      cpf: new FormControl(null),
-      email: new FormControl(null),
-      userType: new FormControl(null),
-    });
-  }
-
-  ExibirFormulario(userID: number): void{
+  exibirFormulario(userID: number): void{
     if(userID > 0){ // Exibir formulario de atualizar dados
       this.visibilidadeFormulario = true;
       this.visibilidadeTabela = false;
-      this.usuariosService.Obter(userID).subscribe(resultado => {
+      this.usuariosService.obter(userID).subscribe(resultado => {
       this.tituloFormulario = `Atualizar ${resultado.name}`;
       this.formulario = new FormGroup({
       userID: new FormControl(userID),
@@ -115,19 +85,19 @@ export class UsuariosComponent implements OnInit {
     }
   }
 
-  EnviarFormulario(): void{
+  enviarFormulario(): void{
     const usuario : Usuario = this.formulario.value;
     let isFormularioValido = this.validarFormulario(usuario);
     
     if(usuario.userID > 0 && isFormularioValido){
 
-      this.usuariosService.Alterar(usuario).subscribe(resultado =>
+      this.usuariosService.alterar(usuario).subscribe(resultado =>
       {
         console.log( "Alterando!" );
         this.visibilidadeTabela = true;
         this.visibilidadeFormulario = false
         alert("Usuario alterado com sucesso!");
-        this.usuariosService.Listar().subscribe(
+        this.usuariosService.listar().subscribe(
           resultado => {
           this.usuarios = resultado
         });
@@ -136,11 +106,11 @@ export class UsuariosComponent implements OnInit {
     }else if(isFormularioValido){
 
       console.log( "Incluindo!" );
-      this.usuariosService.Incluir(usuario).subscribe(resultado => {
+      this.usuariosService.incluir(usuario).subscribe(resultado => {
         this.visibilidadeTabela = true;
         this.visibilidadeFormulario = false;
         alert("Usuario inserido com sucesso!");
-        this.usuariosService.Listar().subscribe(
+        this.usuariosService.listar().subscribe(
           resultado => {
           this.usuarios = resultado
         });
@@ -152,35 +122,24 @@ export class UsuariosComponent implements OnInit {
       }
     }
 
-  EnviarFormularioUpdateUser(): void{
-    const usuario : Usuario = this.formulario.value;
-    let isFormularioValido = this.validarFormulario(usuario);
-    if(isFormularioValido){
-      this.usuariosService.Alterar(usuario).subscribe(resultado =>
-        {
-          console.log( "Alterando!" );
-          this.visibilidadeTabela = true;
-          this.visibilidadeFormulario = false;
-          alert("Usuario alterado com sucesso!");
-          this.usuariosService.Listar().subscribe(
-            resultado => {
-            this.usuarios = resultado
-          });
-        });
-      }else{
-        alert("Dados invalidos! Confira e tente novamente.")
-      }
-    }
-
-  EnviarExclusao(userID: number): void{
+  enviarExclusao(userID: number): void{
     console.log( "Excluir!" );
-    this.usuariosService.Excluir(userID).subscribe(resultado => {
+    this.usuariosService.excluir(userID).subscribe(resultado => {
       alert("Usuario apagado com sucesso!");
-      this.usuariosService.Listar().subscribe(
+      this.usuariosService.listar().subscribe(
           resultado => {
           this.usuarios = resultado
         });
     });
+  }
+
+  // Para validar os campos do formulario
+  validarFormulario( usuario: Usuario ): boolean{
+    if( this.validarNome(usuario.name) && this.validarCpf(usuario.cpf) && this.validarEmail(usuario.email) &&
+     this.validarTipoUsuario(usuario.userType) ){
+      return true;
+    }
+    return false;
   }
 
   validarNome( name: string ): boolean{
@@ -202,14 +161,6 @@ export class UsuariosComponent implements OnInit {
       isUserTypeValido = false;
 
     return isUserTypeValido;
-  }
-
-  validarFormulario( usuario: Usuario ): boolean{
-    if( this.validarNome(usuario.name) && this.validarCpf(usuario.cpf) && this.validarEmail(usuario.email) &&
-     this.validarTipoUsuario(usuario.userType) ){
-      return true;
-    }
-    return false;
   }
 
 }

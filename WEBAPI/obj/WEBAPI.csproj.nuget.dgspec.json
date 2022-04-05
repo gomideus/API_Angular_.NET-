@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gabriel.gomides\\Desktop\\gabriel\\new\\projeto\\WEBAPI\\WEBAPI.csproj": {}
+    "C:\\Users\\gabriel.gomides\\Desktop\\api-project\\WEBAPI\\WEBAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gabriel.gomides\\Desktop\\gabriel\\new\\projeto\\WEBAPI\\WEBAPI.csproj": {
+    "C:\\Users\\gabriel.gomides\\Desktop\\api-project\\WEBAPI\\WEBAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gabriel.gomides\\Desktop\\gabriel\\new\\projeto\\WEBAPI\\WEBAPI.csproj",
+        "projectUniqueName": "C:\\Users\\gabriel.gomides\\Desktop\\api-project\\WEBAPI\\WEBAPI.csproj",
         "projectName": "WEBAPI",
-        "projectPath": "C:\\Users\\gabriel.gomides\\Desktop\\gabriel\\new\\projeto\\WEBAPI\\WEBAPI.csproj",
+        "projectPath": "C:\\Users\\gabriel.gomides\\Desktop\\api-project\\WEBAPI\\WEBAPI.csproj",
         "packagesPath": "C:\\Users\\gabriel.gomides\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gabriel.gomides\\Desktop\\gabriel\\new\\projeto\\WEBAPI\\obj\\",
+        "outputPath": "C:\\Users\\gabriel.gomides\\Desktop\\api-project\\WEBAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gabriel.gomides\\AppData\\Roaming\\NuGet\\NuGet.Config",

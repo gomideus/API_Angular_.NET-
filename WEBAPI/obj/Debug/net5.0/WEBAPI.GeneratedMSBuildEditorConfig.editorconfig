@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = WEBAPI
-build_property.ProjectDir = C:\Users\gabriel.gomides\Desktop\gabriel\new\projeto\WEBAPI\
+build_property.ProjectDir = C:\Users\gabriel.gomides\Desktop\api-project\WEBAPI\

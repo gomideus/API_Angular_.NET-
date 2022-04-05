@@ -13,26 +13,26 @@ namespace WEBAPI.Models
             _eventoRepo = eventoRepo;
         }
 
-        public void ProcessarFila(){
+        public void processarFila(){
             Console.WriteLine("Obtendo a lista: ");
-            var lista = _eventoRepo.Listar();
+            var lista = _eventoRepo.listar();
             foreach(var item in lista){
                 Console.WriteLine("Novo evento:" + item.name.ToString());
             }
-            Console.WriteLine("Pressione uma tecla para finalizar!");
-            Console.ReadKey();
+            //Console.WriteLine("Pressione uma tecla para finalizar!");
+            //Console.ReadKey();
         }
 
-        public void GerarDadosTeste()
+        public void gerarDadosTeste()
         {
             var evento = new Usuario(){
                 userID = 1,
-                name = "Nome Teste",
+                name = "Teste",
                 cpf = "123.132.133-09",
-                email = "test@gmail.com",
-                userType = "Admin"
+                email = "teste@gmail.com",
+                userType = "Normal"
             };
-            _eventoRepo.Incluir(evento);
+            _eventoRepo.incluir(evento);
         }
     }
 }
