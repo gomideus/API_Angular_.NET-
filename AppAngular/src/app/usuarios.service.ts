@@ -14,7 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UsuariosService {
-  url = 'https://localhost:5001/api/EventoRepository';
+  url = 'https://localhost:5001/api/usuarios';
   constructor(private http: HttpClient) { }
 
   // CREATE

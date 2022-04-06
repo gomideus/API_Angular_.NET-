@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WEBAPI.Models
 {
     [ApiController]
-    [Route("api/EventoRepository")]
+    [Route("api/usuarios")]
     public class EventoRepository : IEventoRepository
     {
         private readonly DatabaseContext _context;
@@ -28,27 +28,28 @@ namespace WEBAPI.Models
             return true;
         }
 
-        [HttpPost]
-        public Usuario incluir( Usuario obj ){
-            _context.Add(obj);
+        [HttpPost("{user}")]
+        public Usuario incluir( Usuario user ){
+            _context.Add(user);
             _context.SaveChanges();
-            return obj;
+            return user;
         }
 
-        [HttpPut]
-        public Usuario alterar( Usuario obj ){
-            var Dobj = this.obter(obj.userID);
-            if(Dobj == null){
+        [HttpPut("{user}")]
+        public Usuario alterar( Usuario user ){
+            var userDeletedObject = this.obter(user.userID);
+            if(userDeletedObject == null){
                 return null;
             }
-            var uid = Dobj.userID;
-            obj.userID = uid;
-            _context.Remove(Dobj);
-            _context.Add(obj);
+            var uid = userDeletedObject.userID;
+            user.userID = uid;
+            _context.Remove(userDeletedObject);
+            _context.Add(user);
             _context.SaveChanges();
             return null;
         }
 
+        [HttpGet]
         public IEnumerable<Usuario> listar(){
             return _context.Eventos.ToList();
         }
