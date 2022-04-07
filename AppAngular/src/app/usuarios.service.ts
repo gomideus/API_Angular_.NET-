@@ -6,12 +6,13 @@ import { Usuario } from './Usuario';
 
 var headers_object = new HttpHeaders();
 const httpOptions = {
-  headers: headers_object
+  headers: headers_object,
 }
 headers_object.append('Content-Type', 'application/json');
 
 export function setHttpHeader(token: string){
-  console.log(token);
+  //console.log(token);
+  console.log("Basic " + token);
   headers_object.append("Authorization", "Basic " + token);
 }
 
