@@ -2,17 +2,17 @@
   <h1>{{tituloFormulario}}</h1>
   <form [formGroup]="formulario" *ngIf="formulario" id="form1">
 
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field appearance="fill">
     <input type="text" matInput placeholder="Nome" formControlName="name">
     </mat-form-field>
     <br>
 
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field appearance="fill">
     <input type="text" matInput placeholder="Cpf" formControlName="cpf"  mask="000-000-000.00">
     </mat-form-field>
     <br>
 
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field appearance="fill">
     <input type="text" matInput placeholder="Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" formControlName="email">
     </mat-form-field>
     <br>

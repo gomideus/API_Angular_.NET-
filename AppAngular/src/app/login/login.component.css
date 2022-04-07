@@ -1,0 +1,23 @@
+
+#form{
+    margin: auto;
+    width: 25%;
+    padding: 10px;
+    position: relative;
+    top: 20%;
+}
+
+.inputField{
+    left: 18%;
+}
+
+h1{
+    margin: 5%;
+    left: 20%;
+    position: relative;
+}
+
+button{
+    display: block; 
+    margin: auto;
+}

@@ -4,11 +4,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from './Usuario';
 
+var headers_object = new HttpHeaders();
 const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': 'Basic YWRtaW46YWRtaW4='
-  })
+  headers: headers_object
+}
+headers_object.append('Content-Type', 'application/json');
+
+export function setHttpHeader(token: string){
+  console.log(token);
+  headers_object.append("Authorization", "Basic " + token);
 }
 
 @Injectable({

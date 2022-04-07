@@ -1,0 +1,14 @@
+
+<div class="mat-elevation-z8" id="form">
+    <form [formGroup]="formulario">
+        <h1>API Login</h1>
+        <mat-form-field appearance="fill" class="inputField">
+        <input type="text" matInput placeholder="Username" formControlName="username">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="inputField">
+        <input type="password" matInput placeholder="Password" formControlName="pass">
+        </mat-form-field>
+        <button mat-raised-button (click)="apiLoginSetAuthHeader()">Login</button>
+    </form>
+</div>
+
