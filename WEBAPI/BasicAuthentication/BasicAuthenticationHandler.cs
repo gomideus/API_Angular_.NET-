@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Authentication;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using System.Text.Encodings.Web;
-using System.Security.Cryptography.X509Certificates;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Security.Claims;
@@ -26,12 +24,15 @@ namespace WEBAPI.BasicAuthentication
 
         }
 
+        
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
 
             Console.WriteLine("HERE");
-            if(!Request.Headers.ContainsKey("Authorization"))
+            if(!Request.Headers.ContainsKey("Authorization")){
+                Console.WriteLine("HERE-01");
                 return AuthenticateResult.Fail("Authorization header not found");
+            }
 
             var authenticationHeaderValue = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
             var bytes = Convert.FromBase64String(authenticationHeaderValue.Parameter);

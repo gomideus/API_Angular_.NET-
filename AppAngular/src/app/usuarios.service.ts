@@ -25,13 +25,13 @@ export class UsuariosService {
 
   // READ ALL
   listar(): Observable<Usuario[]>{
-    return this.http.get<Usuario[]>(this.url);
+    return this.http.get<Usuario[]>(this.url, httpOptions);
   }
   
   // READ
   obter(userID: number): Observable<Usuario>{
     const apiUrl = `${this.url}/${userID}`;
-    return this.http.get<Usuario>(apiUrl);
+    return this.http.get<Usuario>(apiUrl, httpOptions);
   }
 
   // UPDATE

@@ -43,8 +43,8 @@ namespace WEBAPI
 
             services.AddCors ();
 
-           // services.AddAuthentication("BasicAuthentication")
-           // .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+            services.AddAuthentication("BasicAuthentication")
+            .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
             services.AddScoped<IEventoService,EventoService>()
                 .AddScoped<IEventoRepository, EventoRepository>()
@@ -75,7 +75,8 @@ namespace WEBAPI
 
             app.UseRouting();
 
-           // app.UseAuthorization();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseCors(opcoes => opcoes.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseEndpoints(endpoints =>
