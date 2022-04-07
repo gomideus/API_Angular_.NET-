@@ -13,6 +13,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using WEBAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication;
+using WEBAPI.BasicAuthentication;
 
 namespace WEBAPI
 {
@@ -40,6 +42,9 @@ namespace WEBAPI
         {
 
             services.AddCors ();
+
+            services.AddAuthentication("BasicAuthentication")
+            .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
             services.AddScoped<IEventoService,EventoService>()
                 .AddScoped<IEventoRepository, EventoRepository>()
