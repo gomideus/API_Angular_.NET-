@@ -43,8 +43,8 @@ namespace WEBAPI
 
             services.AddCors ();
 
-            services.AddAuthentication("BasicAuthentication")
-            .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+           // services.AddAuthentication("BasicAuthentication")
+           // .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
             services.AddScoped<IEventoService,EventoService>()
                 .AddScoped<IEventoRepository, EventoRepository>()
@@ -62,6 +62,7 @@ namespace WEBAPI
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -74,10 +75,9 @@ namespace WEBAPI
 
             app.UseRouting();
 
+           // app.UseAuthorization();
+
             app.UseCors(opcoes => opcoes.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-
-            app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

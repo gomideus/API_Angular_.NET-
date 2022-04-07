@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace WEBAPI.Models
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/usuarios")]
     public class EventoRepository : IEventoRepository

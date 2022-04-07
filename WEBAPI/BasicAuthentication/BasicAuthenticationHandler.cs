@@ -10,6 +10,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Security.Claims;
 
+
 namespace WEBAPI.BasicAuthentication
 {
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
@@ -27,6 +28,8 @@ namespace WEBAPI.BasicAuthentication
 
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
+
+            Console.WriteLine("HERE");
             if(!Request.Headers.ContainsKey("Authorization"))
                 return AuthenticateResult.Fail("Authorization header not found");
 
@@ -35,17 +38,20 @@ namespace WEBAPI.BasicAuthentication
             string[] credentials = Encoding.UTF8.GetString(bytes).Split(":");
             string username = credentials[0];
             string password = credentials[1];
+
+            Console.WriteLine(username);
+            Console.WriteLine(password);
             
             if( username == "admin" && password == "admin" ){
                 var claims = new[] { new Claim(ClaimTypes.Name, username) };
                 var identity = new ClaimsIdentity(claims, Scheme.Name);
                 var principal = new ClaimsPrincipal(identity);
                 var ticket = new AuthenticationTicket(principal, Scheme.Name);
-                AuthenticateResult.Success(ticket);
+                return AuthenticateResult.Success(ticket);
             }
 
 
-            return AuthenticateResult.Fail("Need to implement.");
+            return AuthenticateResult.Fail("Auth fail");
 
         }
     }

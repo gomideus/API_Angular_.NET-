@@ -6,7 +6,8 @@ import { Usuario } from './Usuario';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authorization': 'Basic YWRtaW46YWRtaW4='
   })
 }
 
