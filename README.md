@@ -17,7 +17,6 @@
 <br><br><br>
 # SWAGGER (DOCUMENTAÇÃO DA API)
 - Rota de acesso: https://localhost:5001/swagger/index.html
-<br>
 ![Screenshot_7](https://user-images.githubusercontent.com/68978413/162541065-ecd401c4-04cb-4027-8d4a-af5fd417f4fe.png)
 <br><br><br>
 # READ (LISTAGEM DOS USUÁRIOS)
