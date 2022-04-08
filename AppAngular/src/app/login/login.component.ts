@@ -4,7 +4,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import {Router} from '@angular/router';
 import { UsuarioApi } from 'src/app/UsuarioApi';
 
-import { setHttpHeader } from 'src/app/usuarios.service';
+import { Interceptor } from 'src/app/interceptor/interceptor.service';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,8 @@ import { setHttpHeader } from 'src/app/usuarios.service';
 })
 export class LoginComponent implements OnInit {
 
+  constructor(private router: Router, private _http: HttpClient) { }
+
     //formulario: any;
 
     formulario = new FormGroup({
@@ -20,16 +23,16 @@ export class LoginComponent implements OnInit {
     pass: new FormControl(null),
     });
 
+    //private interceptor:Interceptor = new Interceptor();
+
     apiLoginSetAuthHeader(): void{
       const usuarioApi : UsuarioApi = this.formulario.value;
-
       var credentialString = usuarioApi.username + ':' + usuarioApi.pass;
-      var token = btoa(credentialString); // (btoa): Converter string para base 64
-      setHttpHeader(token);
+      //var token = btoa(credentialString); // (btoa): Converter string para base 64
+      //this.interceptor.setAuthenticationToken(token);
+      localStorage.setItem("usuario", credentialString);
       this.router.navigate(['/usuarios']);
     }
-
-  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }

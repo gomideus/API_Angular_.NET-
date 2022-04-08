@@ -20,6 +20,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { LoginComponent } from './login/login.component'
 
+import { InterceptorModule } from './interceptor/interceptor.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,7 @@ import { LoginComponent } from './login/login.component'
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    InterceptorModule,
     NgxMaskModule.forRoot(),
   ],
   providers: [HttpClientModule, UsuariosService],

@@ -4,17 +4,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from './Usuario';
 
-var headers_object = new HttpHeaders();
 const httpOptions = {
-  headers: headers_object,
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Basic aaaAaaaaaaaaaaaaaAAA'
+  })
 }
-headers_object.append('Content-Type', 'application/json');
 
-export function setHttpHeader(token: string){
-  //console.log(token);
-  console.log("Basic " + token);
-  headers_object.append("Authorization", "Basic " + token);
-}
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +19,10 @@ export function setHttpHeader(token: string){
 export class UsuariosService {
   url = 'https://localhost:5001/api/usuarios';
   constructor(private http: HttpClient) { }
+
+  getAuthorization(): any{
+    return localStorage.getItem("usuario");
+  }
 
   // CREATE
   incluir(usuario: Usuario ): Observable<any>{
