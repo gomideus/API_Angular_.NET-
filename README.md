@@ -4,7 +4,7 @@
 - Implementado o conceito de Clean Code no projeto.
 - Utilizado Ng-Mask para máscara de CPF.
 - Contruído com base de dados InMemory para testes.
-- Adicionada documentação Swagger no projeto (rota usuarios/swagger).
+- Adicionada documentação Swagger no projeto.
 - Autenticação basic (conversão em base 64) apenas para testes.
 <br><br><br>
 # LOGIN (API)
