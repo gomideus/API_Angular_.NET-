@@ -12,7 +12,7 @@
 - Tela de autenticação para acesso à API ( usuário padrão: admin, senha: admin ).
 - Usuário e senha padrão estão definidos diretamente no back-end, mais especificamente no BasicAuthenticationHandler (para testes).
 - Quando o login é efetuado os dados são salvos na memória do navegador ( localStorage.setItem() ).
-- O interceptor realiza a leitura dos dados da memoria e converte para base 64 para incluir na header Aauthentication.
+- O interceptor realiza a leitura dos dados da memoria e converte para base 64 para incluir na header.
 ![Screenshot_6](https://user-images.githubusercontent.com/68978413/162539708-0402173c-1f51-469c-b596-e0bf4d7f3af4.png)
 <br><br><br>
 # SWAGGER (DOCUMENTAÇÃO DA API)
