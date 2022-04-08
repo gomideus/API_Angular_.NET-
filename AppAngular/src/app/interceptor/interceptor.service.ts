@@ -24,8 +24,7 @@ export class Interceptor implements HttpInterceptor {
         const encode = btoa(`${localStorage.getItem("usuario")}`);
         request = request.clone({
         setHeaders: {
-        Authorization: `Basic ${encode}` // Converter string de credenciais para base 64 e 
-        // setar authentication header
+        Authorization: `Basic ${encode}`
         }
         });
         

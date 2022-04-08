@@ -41,7 +41,7 @@ namespace WEBAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddCors ();
+            services.AddCors();
 
             services.AddAuthentication("BasicAuthentication")
             .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);

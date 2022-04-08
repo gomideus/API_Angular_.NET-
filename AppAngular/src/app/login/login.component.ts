@@ -28,8 +28,6 @@ export class LoginComponent implements OnInit {
     apiLoginSetAuthHeader(): void{
       const usuarioApi : UsuarioApi = this.formulario.value;
       var credentialString = usuarioApi.username + ':' + usuarioApi.pass;
-      //var token = btoa(credentialString); // (btoa): Converter string para base 64
-      //this.interceptor.setAuthenticationToken(token);
       localStorage.setItem("usuario", credentialString);
       this.router.navigate(['/usuarios']);
     }
