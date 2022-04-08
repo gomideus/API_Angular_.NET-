@@ -6,6 +6,18 @@
 - Contruído com base de dados InMemory para testes.
 - Adicionada documentação Swagger no projeto (rota usuarios/swagger).
 <br><br><br>
+# LOGIN (API)
+- Rota de acesso: http://localhost:4200/ OU http://localhost:4200/login
+- Tela de autenticação para acesso à API ( usuário padrão: admin, senha: admin ).
+- Usuário e senha padrão estão definidos diretamente no back-end, mais especificamente no BasicAuthenticationHandler (para testes).
+- Quando o login é efetuado os dados são salvos na memória do navegador ( localStorage.setItem() ).
+- O interceptor realiza a leitura dos dados da memoria e converte para base 64 para incluir na header Aauthentication.
+![Screenshot_6](https://user-images.githubusercontent.com/68978413/162539708-0402173c-1f51-469c-b596-e0bf4d7f3af4.png)
+<br><br><br>
+# SWAGGER (DOCUMENTAÇÃO DA API)
+- Rota de acesso: https://localhost:5001/swagger/index.html
+![Screenshot_7](https://user-images.githubusercontent.com/68978413/162541065-ecd401c4-04cb-4027-8d4a-af5fd417f4fe.png)
+<br><br><br>
 # READ (LISTAGEM DOS USUÁRIOS)
 ![Screenshot_1](https://user-images.githubusercontent.com/68978413/162020765-6088ce7a-c69f-47f2-ae70-278d86f57295.png)
 <br><br><br>
