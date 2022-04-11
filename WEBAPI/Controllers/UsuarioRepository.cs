@@ -30,14 +30,14 @@ namespace WEBAPI.Models
             return true;
         }
 
-        [HttpPost("{user}")]
+        [HttpPost]
         public Usuario incluir( Usuario user ){
             _context.Add(user);
             _context.SaveChanges();
             return user;
         }
 
-        [HttpPut("{user}")]
+        [HttpPut]
         public Usuario alterar( Usuario user ){
             var userDeletedObject = this.obter(user.userID);
             if(userDeletedObject == null){

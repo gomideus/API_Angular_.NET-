@@ -87,7 +87,8 @@ export class UsuariosComponent implements OnInit {
 
   enviarFormulario(): void{
     const usuario : Usuario = this.formulario.value;
-    let isFormularioValido = this.validarFormulario(usuario);
+    //let isFormularioValido = this.validarFormulario(usuario);
+    let isFormularioValido = true;
     
     if(usuario.userID > 0 && isFormularioValido){
 
