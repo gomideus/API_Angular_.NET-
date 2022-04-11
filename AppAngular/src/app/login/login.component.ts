@@ -16,14 +16,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private _http: HttpClient) { }
 
-    //formulario: any;
 
     formulario = new FormGroup({
     username: new FormControl(null),
     pass: new FormControl(null),
     });
 
-    //private interceptor:Interceptor = new Interceptor();
 
     apiLoginSetAuthHeader(): void{
       const usuarioApi : UsuarioApi = this.formulario.value;

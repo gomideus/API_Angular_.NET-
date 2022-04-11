@@ -4,7 +4,6 @@ import { EmailValidator, FormControl, FormGroup } from '@angular/forms';
 import { Usuario } from 'src/app/Usuario';
 import { UsuariosService } from 'src/app/usuarios.service';
 
-
 // Constantes, para validação dos campos do formulário
 var NAME_MIN_LENGTH = 3;
 var NAME_MAX_LENGTH = 20;
@@ -147,8 +146,8 @@ export class UsuariosComponent implements OnInit {
   }
 
   validarCpf(cpf:string): boolean{
-    console.log(cpf.length);
-    return cpf.length != CPF_LENGTH ? false : true;
+    //return cpf.length != CPF_LENGTH ? false : true;
+    return true;
   }
 
   validarEmail(email:string): boolean{
