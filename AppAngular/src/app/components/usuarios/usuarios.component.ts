@@ -8,7 +8,7 @@ import { UsuariosService } from 'src/app/usuarios.service';
 // Constantes, para validação dos campos do formulário
 var NAME_MIN_LENGTH = 3;
 var NAME_MAX_LENGTH = 20;
-var CPF_LENGTH = 11;
+var CPF_LENGTH = 14; // contando com pontos e '-'
 var EMAIL_MIN_LENGTH = 3;
 var EMAIL_MAX_LENGTH = 254;
 
@@ -87,8 +87,7 @@ export class UsuariosComponent implements OnInit {
 
   enviarFormulario(): void{
     const usuario : Usuario = this.formulario.value;
-    //let isFormularioValido = this.validarFormulario(usuario);
-    let isFormularioValido = true;
+    let isFormularioValido = this.validarFormulario(usuario);
     
     if(usuario.userID > 0 && isFormularioValido){
 
@@ -148,6 +147,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   validarCpf(cpf:string): boolean{
+    console.log(cpf.length);
     return cpf.length != CPF_LENGTH ? false : true;
   }
 
@@ -157,10 +157,8 @@ export class UsuariosComponent implements OnInit {
 
   validarTipoUsuario(userType:string): boolean{
     var isUserTypeValido = true;
-
     if( userType != "Administrador" && userType != "Financeiro" && userType != "Normal" )
       isUserTypeValido = false;
-
     return isUserTypeValido;
   }
 

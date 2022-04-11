@@ -42,9 +42,6 @@ namespace WEBAPI.BasicAuthentication
             string[] credentials = Encoding.UTF8.GetString(bytes).Split(":");
             string username = credentials[0];
             string password = credentials[1];
-
-            Console.WriteLine(username);
-            Console.WriteLine(password);
             
             if( username == DEFAULT_USERNAME && password == DEFAULT_PASS ){
                 var claims = new[] { new Claim(ClaimTypes.Name, username) };
