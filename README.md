@@ -30,4 +30,4 @@
 <br><br><br>
 # DELETE (APAGAR USUÁRIO)
 ![Screenshot_4](https://user-images.githubusercontent.com/68978413/162021048-e46fb872-4acf-4f96-83c2-4a6edc237047.png)
-![Screenshot_5](https://user-images.githubusercontent.com/68978413/162021060-8e5fc09d-8fa7-4b69-abd8-a55d2cfe61eb.png)
+![Screenshot_5](https://user-images.githubusercontent.com/68978413/162021060-8e5fc09d-8fa7-4b69-abd8-a55d2cfe61eb.png) 
