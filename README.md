@@ -6,6 +6,7 @@
 - Contruído com base de dados InMemory para testes.
 - Adicionada documentação Swagger no projeto.
 - Autenticação basic (conversão em base 64) apenas para testes.
+
 <br><br><br>
 # LOGIN (API)
 - Rota de acesso: http://localhost:4200/ OU http://localhost:4200/login
